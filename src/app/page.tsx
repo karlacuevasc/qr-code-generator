@@ -247,6 +247,7 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue }) => {
 export default function HomePage() {
   const [inputValue, setInputValue] = useState('');
   const [qrCodeValue, setQrCodeValue] = useState('');
+  const step2Ref = useRef<HTMLElement>(null);
 
   const handleEnterPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -279,6 +280,17 @@ export default function HomePage() {
       if (urlToEncode.startsWith(httpPrefix) || urlToEncode.startsWith(httpsPrefix)) {
         if (urlToEncode.length > 8 || urlToEncode.length > 7) {
           setQrCodeValue(urlToEncode);
+          
+          // Scroll to step 2 section after generating QR code - Only on mobile
+          setTimeout(() => {
+            // Check if we're on mobile (less than lg breakpoint)
+            if (step2Ref.current && window.innerWidth < 1024) {
+              step2Ref.current.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }, 100);
         } else {
           alert('Please enter a complete URL.');
         }
@@ -320,7 +332,7 @@ export default function HomePage() {
         </div>
 
         {/* Right Column (Step 3: Download) - Fixed for mobile */}
-        <aside className="lg:block">
+        <aside className="lg:block" ref={step2Ref}>
           <h2 className="text-lg font-semibold text-gray-800 mb-4 text-left lg:text-center">
             <span className="inline-block w-6 h-6 bg-[#A530F2] text-white rounded-full text-center leading-6 mr-2 text-sm">2</span>
             Download your QR Code
