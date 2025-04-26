@@ -49,7 +49,10 @@ const Step1Content: React.FC<Step1ContentProps> = ({ urlValue, setUrlValue, hand
 
   return (
     <div>
-      <label htmlFor="website-url" className="block text-sm font-medium text-gray-700 mb-1">Enter your website or page link</label>
+      <label htmlFor="website-url" className="block text-lg font-semibold text-gray-800 mb-4">
+        <span className="inline-block w-6 h-6 bg-[#A530F2] text-white rounded-full text-center leading-6 mr-2 text-sm">1</span>
+        Enter your website or page link
+      </label>
       <input 
         type="url" 
         id="website-url"
@@ -62,11 +65,6 @@ const Step1Content: React.FC<Step1ContentProps> = ({ urlValue, setUrlValue, hand
     </div>
   );
 };
-
-// Step 2 Design Component is removed as it's no longer used
-// const Step2Design = () => (
-//   <div className="text-gray-400 text-sm italic">QR Code design options (Sticker, Color, Shapes, Logo) will go here.</div>
-// );
 
 // Step 3 Download Component
 interface Step3DownloadProps {
@@ -94,7 +92,7 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue, onDownloadClick 
     </div>
     <button 
       onClick={onDownloadClick}
-      className={`bg-teal-600 text-white font-medium px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors w-full justify-center ${
+      className={`bg-[#A530F2] text-white font-medium px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors w-full justify-center ${
         !qrValue ? 'opacity-50 cursor-not-allowed' : 'hover:bg-teal-700'
       }`}
       disabled={!qrValue}
@@ -150,8 +148,8 @@ export default function HomePage() {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-3xl font-semibold text-teal-600 text-center mb-8">
-        Free QR Code Generator Online <span className="text-red-500 align-super text-xs">*</span>
+      <h1 className="text-3xl font-semibold text-white text-center mb-8">
+        Generate your free QR Code in 2 easy steps.
       </h1>
 
       {/* Horizontal ad below the title */}
@@ -169,9 +167,6 @@ export default function HomePage() {
         <div className="lg:col-span-2 space-y-8">
           {/* Step 1: Content Input */}
           <section>
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
-              Transform Your Link into a QR Code 
-            </h2>
             <Step1Content 
               urlValue={inputValue}
               setUrlValue={setInputValue}
@@ -191,7 +186,8 @@ export default function HomePage() {
 
         {/* Right Column (Step 3: Download) */}
         <aside>
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">
+          <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+            <span className="inline-block w-6 h-6 bg-[#A530F2] text-white rounded-full text-center leading-6 mr-2 text-sm">2</span>
             Download your QR Code
           </h2>
           <Step3Download 
