@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "QR Code Creator - Free QR Code Generator Online",
   description: "Generate custom QR codes for websites, PDFs, email, social media, vCards and more. Free and easy to use online QR code creator.",
+  other: {
+    "google-adsense-account": "ca-pub-5531014832731579",
+  },
 };
 
 export default function RootLayout({
