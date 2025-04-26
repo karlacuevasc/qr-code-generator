@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Globe, FileText, Mail, Users, Phone, ChevronDown } from 'lucide-react';
 
 interface Tab {

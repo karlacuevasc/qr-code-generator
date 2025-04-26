@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { QrCode, LogIn } from 'lucide-react';
+import { QrCode } from 'lucide-react';
 
 export default function NewHeader() {
   return (

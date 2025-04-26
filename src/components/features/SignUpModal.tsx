@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Eye, EyeOff, Download } from 'lucide-react';
 import QRCode from 'react-qr-code';
 
@@ -86,7 +86,7 @@ export default function SignUpModal({ isOpen, onClose, qrValue }: SignUpModalPro
         try {
           const hostname = new URL(qrValue).hostname.replace('www.', '');
           filename = `qrcode_${hostname}.png`;
-        } catch (e) {
+        } catch (error) {
           // If URL parsing fails, use default filename
           console.warn('Could not parse URL for filename, using default');
         }
