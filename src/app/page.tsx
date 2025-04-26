@@ -192,7 +192,7 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-start lg:items-center w-full">
       <div className="w-48 h-48 p-2 border border-gray-300 mb-4 flex items-center justify-center bg-white shadow-sm rounded-md overflow-hidden">
         {qrValue ? (
           <QRCode
@@ -225,7 +225,7 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue }) => {
         )}
       </div>
       {/* Download Button - Smaller version */}
-      <div className="flex justify-center">
+      <div className="flex justify-start lg:justify-center w-full">
         <button 
           onClick={downloadQRCode}
           disabled={isDownloading || !qrValue}
@@ -319,15 +319,18 @@ export default function HomePage() {
           </section>
         </div>
 
-        {/* Right Column (Step 3: Download) */}
-        <aside>
-          <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+        {/* Right Column (Step 3: Download) - Fixed for mobile */}
+        <aside className="lg:block">
+          <h2 className="text-lg font-semibold text-gray-800 mb-4 text-left lg:text-center">
             <span className="inline-block w-6 h-6 bg-[#A530F2] text-white rounded-full text-center leading-6 mr-2 text-sm">2</span>
             Download your QR Code
           </h2>
-          <Step3Download 
-            qrValue={qrCodeValue} 
-          /> 
+          {/* On mobile: left-aligned, On desktop: centered (default) */}
+          <div className="flex flex-col items-start lg:items-center">
+            <Step3Download 
+              qrValue={qrCodeValue} 
+            />
+          </div>
         </aside>
       </div>
 
