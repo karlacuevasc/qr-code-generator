@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function NewHeader() {
   return (
-    <header className="bg-[#1A1B26] py-4">
+    <header className="bg-white py-4 shadow-sm">
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo and Title */}
         <Link href="/" className="flex items-center space-x-3">
@@ -15,22 +15,26 @@ export default function NewHeader() {
             alt="QR Code Creator Logo" 
             width={64}
             height={64}
-            style={{ filter: 'brightness(0) invert(1)' }}
           />
           <div>
-            <span className="text-xl font-bold text-gray-800 dark:text-white">MyQR</span>
+            <span className="text-xl font-bold text-black">MyQR</span>
           </div>
         </Link>
 
-        {/* Header Actions - About Us link removed */}
+        {/* Header Actions - About Us & FAQ links added */}
         <div className="flex items-center space-x-4">
-          {/* <Link 
-            href="https://github.com/your-username/qr-code-generator" 
-            target="_blank"
-            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+          <Link 
+            href="/about"
+            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
           >
             About Us
-          </Link> */}
+          </Link>
+          <Link 
+            href="/faq"
+            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
+          >
+            FAQ
+          </Link>
         </div>
       </div>
     </header>
