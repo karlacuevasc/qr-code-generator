@@ -630,32 +630,32 @@ export default function HomePage() {
              <AdSenseAd adSlot="2345678901" adFormat="rectangle" style={{ height: '250px' }} />
            </section>
 
-      {/* How to Use Section - ADDED */}
-      <div className="mb-12 px-4 py-8 bg-white rounded-lg shadow-md">
+      {/* How to Use Section - ADDED (Container Removed) */}
+      <div className="mb-12">
         <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">
           How to Create Your QR Code
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md border border-gray-200">
             <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
               1
             </div>
             <h3 className="text-xl font-medium text-gray-700 mb-1">Enter Link</h3>
             <p className="text-gray-600">Paste the website URL or page link you want your QR code to point to.</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md border border-gray-200">
             <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
               2
             </div>
             <h3 className="text-xl font-medium text-gray-700 mb-1">Customize (Optional)</h3>
-            <p className="text-gray-600">Choose a color to match your brand or style.</p>
+            <p className="text-gray-600">Choose a color and logo to match your brand or style.</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md border border-gray-200">
             <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
               3
             </div>
             <h3 className="text-xl font-medium text-gray-700 mb-1">Download</h3>
-            <p className="text-gray-600">Click 'Download QR' to get your high-resolution QR code image.</p>
+            <p className="text-gray-600">Click \'Download QR\' to get your high-resolution QR code image.</p>
           </div>
         </div>
       </div>
@@ -906,6 +906,17 @@ export default function HomePage() {
           </div>
         </aside>
       </div>
+
+      {/* Coming Soon Section - ADDED (Container Removed) */}
+      <div className="mt-20 mb-20">
+        <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">
+          Coming Soon: More QR Code Types!
+        </h2>
+        <p className="text-gray-600 text-center max-w-xl mx-auto">
+          We're working hard to bring you more features, including QR codes for WiFi, vCards, text messages, and more. Stay tuned!
+        </p>
+      </div>
+      {/* End Coming Soon Section */}
 
       {/* Raydevz Promo Section - ADDED */}
       <section className="mt-12 mb-12 px-6 py-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg shadow-md text-center">

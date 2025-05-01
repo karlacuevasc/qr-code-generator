@@ -5,27 +5,16 @@ export default function AboutPage() {
   return (
     // Remove py-12 from the main container to allow the banner to be full width potentially
     <div className="container mx-auto px-4 text-gray-800">
-      {/* Banner Section */}
-      <div className="relative h-64 md:h-80 w-full mb-12 overflow-hidden rounded-lg">
-        <Image
-          src="/qr-code-table.jpg"
-          alt="QR Code on Table Banner"
-          layout="fill"
-          objectFit="cover" // Cover ensures the image covers the div, might crop
-          quality={85}
-          priority // Load this image first
-        />
-        {/* Re-added dark overlay - Reduced opacity */}
-        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-          {/* Changed text back to white and added drop shadow */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white text-center filter drop-shadow-md">
-            About MyQR
-          </h1>
-        </div>
-      </div>
+      {/* Banner Section Removed */}
       
-      {/* Existing Content Section - Added py-12 back here */}
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6 py-12">
+      {/* Moved Page Title Outside Container */}
+      <h1 className="text-4xl font-semibold text-center mt-12 mb-8 text-black">
+        About MyQR
+      </h1>
+
+      {/* Existing Content Section - Removed top padding */}
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6 pb-12">
+        {/* Title Removed from here */}
         <p className="text-lg leading-relaxed">
           Hey there, welcome to MyQR – the quickest, easiest, and totally free way to make awesome QR codes for all your websites or page links!
         </p>
@@ -35,12 +24,42 @@ export default function AboutPage() {
         <p className="text-lg leading-relaxed">
           We built MyQR to be fast, fun, and freakishly easy to use. No logins, no hidden fees, no tech headaches. Just clean, customizable QR codes that work like a charm. And we're just getting started. Expect more cool features, more ways to customize, and maybe even a few surprises along the way. We're all about keeping things simple, useful, and a little bit fun.
         </p>
-        <p className="text-lg leading-relaxed">
-          MyQR was proudly created by Raydevz, a company that specializes in designing and developing beautiful, functional mobile and web applications. At Raydevz, our focus is on helping businesses connect with their customers and achieve their goals through thoughtful, user-friendly digital solutions. Learn more about us at <a href="https://raydevz.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">raydevz.com</a>.
-        </p>
-        <p className="text-lg leading-relaxed font-medium text-center">
-          Now go make something awesome!
-        </p>
+        
+        {/* The Creators Section - Modified for Image + Text Layout */}
+        <div className="pt-4 mt-4 border-t border-gray-200">
+          {/* Changed to grid layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            {/* Image Column */}
+            <div className="flex justify-center md:justify-start">
+              <Image 
+                src="/Marketing-Ad.jpg" // Added image
+                alt="Raydevz Marketing Ad" 
+                width={300} // Adjust width as needed
+                height={200} // Adjust height as needed
+                className="shadow-md object-cover" // Removed rounded-lg
+              />
+            </div>
+            {/* Text Column */}
+            <div>
+              <h2 className="text-3xl font-semibold text-gray-900 mb-6">The Creators</h2>
+              <p className="text-lg leading-relaxed">
+                MyQR was proudly created by Raydevz, a company that specializes in designing and developing beautiful, functional mobile and web applications. At Raydevz, our focus is on helping businesses connect with their customers and achieve their goals through thoughtful, user-friendly digital solutions. 
+              </p>
+              {/* Added Button */}
+              <div className="mt-4">
+                <a 
+                  href="https://raydevz.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#A530F2] text-white font-medium px-5 py-2.5 rounded-lg shadow hover:bg-[#482973] transition-colors text-sm"
+                >
+                  Visit Raydevz
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End The Creators Section */}
       </div>
     </div>
   );

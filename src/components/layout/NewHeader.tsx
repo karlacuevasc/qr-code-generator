@@ -25,19 +25,19 @@ export default function NewHeader() {
         <div className="flex items-center space-x-4">
           <Link 
             href="/what-is-qr-code"
-            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
+            className="px-4 py-2 text-base font-medium text-black hover:text-[#A530F2]"
           >
             What is a QR code?
           </Link>
           <Link 
             href="/about"
-            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
+            className="px-4 py-2 text-base font-medium text-black hover:text-[#A530F2]"
           >
             About
           </Link>
           <Link 
             href="/faq"
-            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
+            className="px-4 py-2 text-base font-medium text-black hover:text-[#A530F2]"
           >
             FAQ
           </Link>

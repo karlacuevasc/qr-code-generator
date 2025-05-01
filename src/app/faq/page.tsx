@@ -14,7 +14,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => {
   return (
     <div className="border-b border-gray-200 py-4">
       <button
-        className="flex justify-between items-center w-full text-left text-gray-800 hover:text-teal-600 focus:outline-none"
+        className="flex justify-between items-center w-full text-left text-gray-800 hover:text-[#A530F2] focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="font-medium text-lg">{title}</span>
@@ -45,10 +45,6 @@ export default function FAQPage() {
       </h1>
       
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <AccordionItem title="What is a QR Code?">
-          A QR code (Quick Response code) is a type of two-dimensional barcode that can be read using a smartphone or QR code reader. It stores information like URLs, text, contact details, Wi-Fi network information, and more.
-        </AccordionItem>
-        
         <AccordionItem title="Is MyQR really free to use?">
           Yes! MyQR is 100% free for generating QR codes for website links. We aim to keep this core functionality free forever. We might introduce optional premium features in the future, but the basic URL code generation will remain free.
         </AccordionItem>
@@ -74,10 +70,6 @@ export default function FAQPage() {
 
         <AccordionItem title="Do the generated QR codes expire?">
           No, the QR codes themselves do not expire. They simply encode the data you provide (like a URL). As long as the destination URL is still active, the QR code will continue to work.
-        </AccordionItem>
-
-        <AccordionItem title="How do I scan QR Codes?">
-          Most modern smartphones (iOS and Android) have a built-in QR code scanner in their camera app. Simply open your camera, point it steadily at the QR code for a few seconds, and a notification should pop up with the link or information. If not, you might need to download a dedicated QR code scanner app from your phone's app store.
         </AccordionItem>
 
         <AccordionItem title="Are there limits on how many QR codes I can create?">
