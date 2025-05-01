@@ -194,22 +194,22 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue, qrColor }) => {
 
   return (
     <div className="flex flex-col items-start lg:items-center w-full">
-      <div className="w-48 h-48 p-2 border border-gray-300 mb-4 flex items-center justify-center bg-white shadow-sm rounded-md overflow-hidden">
-        {qrValue ? (
-          <QRCode
-            value={qrValue}
-            size={170}
-            level={"H"}
-            bgColor="#FFFFFF"
+    <div className="w-48 h-48 p-2 border border-gray-300 mb-4 flex items-center justify-center bg-white shadow-sm rounded-md overflow-hidden">
+      {qrValue ? (
+        <QRCode
+          value={qrValue}
+          size={170}
+          level={"H"}
+          bgColor="#FFFFFF"
             fgColor={qrColor}
-            style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-50 text-gray-400 text-center text-sm px-4">
-            Enter a URL and press Enter to generate QR code
-          </div>
-        )}
-      </div>
+          style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-50 text-gray-400 text-center text-sm px-4">
+          Enter a URL and press Enter to generate QR code
+        </div>
+      )}
+    </div>
       <div 
         className="sr-only" 
         ref={qrCodeContainerRef}
@@ -227,7 +227,7 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue, qrColor }) => {
       </div>
       {/* Download Button - Smaller version */}
       <div className="flex justify-start lg:justify-center w-full">
-        <button 
+    <button 
           onClick={downloadQRCode}
           disabled={isDownloading || !qrValue}
           className={`bg-[#A530F2] text-white font-medium px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors justify-center ${
@@ -235,10 +235,10 @@ const Step3Download: React.FC<Step3DownloadProps> = ({ qrValue, qrColor }) => {
           } ${
             isDownloading ? 'opacity-50 cursor-wait' : ''
           }`}
-        >
-          <Download className="w-5 h-5" />
+    >
+      <Download className="w-5 h-5" />
           <span>{isDownloading ? 'Downloading...' : 'Download QR'}</span>
-        </button>
+    </button>
       </div>
     </div>
   );
@@ -275,8 +275,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => {
           {children}
         </div>
       )}
-    </div>
-  );
+  </div>
+);
 };
 
 // Main Page Component
@@ -304,7 +304,7 @@ export default function HomePage() {
       let urlToEncode = inputValue.trim();
       const httpsPrefix = 'https://';
       const httpPrefix = 'http://';
-      
+
       // Basic check: If input is effectively empty or just the prefix, clear QR
       if (!urlToEncode || urlToEncode === httpsPrefix || urlToEncode === httpPrefix) {
         setQrCodeValue('');
@@ -327,7 +327,7 @@ export default function HomePage() {
           // If it doesn't look like a URL, don't generate
            console.warn("Input doesn't look like a valid URL to auto-prefix.");
            setQrCodeValue(''); // Clear previous QR if input becomes invalid
-          return; 
+          return;
         }
       }
       // --- End: Validation and Prefix Logic --- 
@@ -338,11 +338,11 @@ export default function HomePage() {
          if (urlToEncode.length > 7 && urlToEncode.startsWith(httpPrefix)) {
             setQrCodeValue(urlToEncode);
          } else if (urlToEncode.length > 8 && urlToEncode.startsWith(httpsPrefix)) {
-            setQrCodeValue(urlToEncode);
-         } else {
+          setQrCodeValue(urlToEncode);
+        } else {
             console.warn("URL seems incomplete.");
             setQrCodeValue(''); // Clear QR for incomplete prefix-only input
-         }
+        }
       } else {
         // Should ideally not happen due to prefix logic above, but as a fallback
         console.error("Invalid URL format after processing.");
@@ -620,11 +620,46 @@ export default function HomePage() {
   return (
     <div className="container mx-auto px-4">
       <h1 className="text-3xl font-semibold text-black text-center mt-12 mb-2">
-        Generate your free QR Code in 2 easy steps.
+        Generate your free QR Code in 3 easy steps.
       </h1>
       <p className="text-lg italic text-black text-center mb-12 font-light">
         it will always be 100% free
       </p>
+
+          <section className="mt-8">
+             <AdSenseAd adSlot="2345678901" adFormat="rectangle" style={{ height: '250px' }} />
+           </section>
+
+      {/* How to Use Section - ADDED */}
+      <div className="mb-12 px-4 py-8 bg-white rounded-lg shadow-md">
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">
+          How to Create Your QR Code
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
+              1
+            </div>
+            <h3 className="text-xl font-medium text-gray-700 mb-1">Enter Link</h3>
+            <p className="text-gray-600">Paste the website URL or page link you want your QR code to point to.</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
+              2
+            </div>
+            <h3 className="text-xl font-medium text-gray-700 mb-1">Customize (Optional)</h3>
+            <p className="text-gray-600">Choose a color to match your brand or style.</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 bg-[#A530F2] text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">
+              3
+            </div>
+            <h3 className="text-xl font-medium text-gray-700 mb-1">Download</h3>
+            <p className="text-gray-600">Click 'Download QR' to get your high-resolution QR code image.</p>
+          </div>
+        </div>
+      </div>
+      {/* End How to Use Section */}
 
       <div className="bg-white rounded-lg shadow-md border border-gray-200 grid grid-cols-1 lg:grid-cols-3 gap-0">
         {/* Left Column (Input Area) */} 
@@ -812,7 +847,7 @@ export default function HomePage() {
            {/* Optional: Ad can be placed here or removed */}
            {/* <section className="mt-8">
              <AdSenseAd adSlot="2345678901" adFormat="rectangle" style={{ height: '250px' }} />
-           </section> */} 
+           </section> */}
         </div>
 
         {/* Right Column (QR Preview & Download) */}
@@ -872,42 +907,19 @@ export default function HomePage() {
         </aside>
       </div>
 
-      {/* New Section: QR Code Basics - Moved */}
-      <section className="mt-16 mb-8 p-8 bg-white rounded-lg shadow-md border border-gray-200">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-gray-900 text-center mb-4">
-            Are you new to QR codes? Here's what you need to know
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Image Column */}
-            <div className="flex justify-center">
-              <Image 
-                src="/scanning-qr-code.jpg" // Corrected image source
-                alt="Illustration of scanning a QR code" // Updated alt text
-                width={300} // Adjust size as needed
-                height={300} // Adjust size as needed
-                className="max-w-full h-auto rounded-lg shadow-md" // Added styling
-              />
-            </div>
-            {/* Accordion Column */}
-            <div>
-              <AccordionItem title="What is a QR Code?">
-                A QR code (Quick Response code) is a type of two-dimensional barcode that can be read using a smartphone or QR code reader. It stores information like URLs, text, or contact details.
-              </AccordionItem>
-              <AccordionItem title="What are the benefits of using QR Codes?">
-                QR codes offer a quick and easy way to share information digitally. They bridge the gap between the physical and digital worlds, useful for marketing, payments, information sharing, and more.
-              </AccordionItem>
-              <AccordionItem title="How do I scan QR Codes?">
-                Most smartphones have a built-in camera app that can scan QR codes. Simply open your camera, point it at the QR code, and follow the on-screen prompt. You might need to download a dedicated QR scanner app if your phone doesn't have this feature built-in.
-              </AccordionItem>
-            </div>
-          </div>
-        </div>
+      {/* Raydevz Promo Section - ADDED */}
+      <section className="mt-12 mb-12 px-6 py-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg shadow-md text-center">
+        <h2 className="text-3xl font-semibold mb-4">
+          Looking to build a website?
+        </h2>
+        <p className="text-lg max-w-xl mx-auto">
+          This free tool was proudly built by Raydevz. Check out more of our work at <a href="https://raydevz.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:text-purple-200 transition-colors">www.raydevz.com</a> and send us a message—we'd love to hear your ideas and help bring them to life!
+        </p>
       </section>
+      {/* End Raydevz Promo Section */}
 
       {/* Bottom ad - Kept */}
-      <div> {/* Removed mt-8 from here */}
+      <div> 
         <AdSenseAd 
           adSlot="3456789012" 
           adFormat="auto" 

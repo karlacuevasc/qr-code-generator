@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import NewHeader from "@/components/layout/NewHeader";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,19 @@ export default function RootLayout({
         <main className="min-h-screen py-8">
           {children}
         </main>
+        <footer className="bg-gray-100 text-center text-sm py-4 mt-8">
+          <div className="container mx-auto px-4">
+            <span className="text-gray-600 mr-4">
+              © {new Date().getFullYear()} MyQR. All rights reserved.
+            </span>
+            <Link href="/about" className="text-blue-600 hover:underline mr-4">
+              About
+            </Link>
+            <Link href="/privacy" className="text-blue-600 hover:underline">
+              Privacy Policy
+            </Link>
+          </div>
+        </footer>
       </body>
     </html>
   );

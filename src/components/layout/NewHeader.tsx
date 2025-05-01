@@ -21,13 +21,19 @@ export default function NewHeader() {
           </div>
         </Link>
 
-        {/* Header Actions - About Us & FAQ links added */}
+        {/* Header Actions */}
         <div className="flex items-center space-x-4">
+          <Link 
+            href="/what-is-qr-code"
+            className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
+          >
+            What is a QR code?
+          </Link>
           <Link 
             href="/about"
             className="px-4 py-2 text-base font-medium text-black hover:text-gray-700"
           >
-            About Us
+            About
           </Link>
           <Link 
             href="/faq"
